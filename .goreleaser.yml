@@ -67,7 +67,7 @@ archives:
 
 nfpms:
   - license: AGPL 3.0
-    homepage: https://github.com/FloatTech/ZeroBot-Plugin
+    homepage: https://github.com/NoahCodeGG/RelinkRobot
     file_name_template: "zbp_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
     formats:
       - deb

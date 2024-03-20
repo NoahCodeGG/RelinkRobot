@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/FloatTech/ZeroBot-Plugin/kanban/banner"
+	"github.com/NoahCodeGG/RelinkRobot/kanban/banner"
 )
 
 const js = `{
@@ -57,7 +57,7 @@ const js = `{
           "0409": {
             "Comments": "OneBot plugins based on ZeroBot",
             "CompanyName": "FloatTech",
-            "FileDescription": "https://github.com/FloatTech/ZeroBot-Plugin",
+            "FileDescription": "https://github.com/NoahCodeGG/RelinkRobot",
             "FileVersion": "%s",
             "InternalName": "",
             "LegalCopyright": "%s",
