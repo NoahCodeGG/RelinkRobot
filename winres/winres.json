@@ -2,8 +2,7 @@
   "RT_GROUP_ICON": {
     "APP": {
       "0000": [
-        "icon.png",
-        "icon16.png"
+        "icon.png"
       ]
     }
   },
@@ -11,8 +10,8 @@
     "#1": {
       "0409": {
         "identity": {
-          "name": "ZeroBot-Plugin",
-          "version": "1.7.6.1905"
+          "name": "RelinkRobot-Plugin",
+          "version": "1.0.0.1916"
         },
         "description": "",
         "minimum-os": "vista",
@@ -36,23 +35,23 @@
     "#1": {
       "0000": {
         "fixed": {
-          "file_version": "1.7.6.1905",
-          "product_version": "v1.7.6",
-          "timestamp": "2023-11-08T14:13:49+08:00"
+          "file_version": "1.0.0.1916",
+          "product_version": "v1.0.0",
+          "timestamp": "2024-03-21T18:30:48+08:00"
         },
         "info": {
           "0409": {
-            "Comments": "OneBot plugins based on ZeroBot",
-            "CompanyName": "FloatTech",
-            "FileDescription": "https://github.com/NoahCodeGG/RelinkRobot",
-            "FileVersion": "1.7.6.1905",
+            "Comments": "用于加/解密链接的 QQ 机器人插件",
+            "CompanyName": "NoahCode",
+            "FileDescription": "https://github.com/NoahCodeGG/RelinkRobot-Plugin",
+            "FileVersion": "1.0.0.1916",
             "InternalName": "",
-            "LegalCopyright": "© 2020 - 2023 FloatTech. All Rights Reserved.",
+            "LegalCopyright": "NoahCode. All Rights Reserved.",
             "LegalTrademarks": "",
-            "OriginalFilename": "ZBP.EXE",
+            "OriginalFilename": "RRP.EXE",
             "PrivateBuild": "",
-            "ProductName": "ZeroBot-Plugin",
-            "ProductVersion": "v1.7.6",
+            "ProductName": "RelinkRobot-Plugin",
+            "ProductVersion": "v1.0.0",
             "SpecialBuild": ""
           }
         }

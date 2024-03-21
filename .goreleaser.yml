@@ -1,4 +1,4 @@
-project_name: zbp
+project_name: rrp
 env:
   - GO111MODULE=on
 before:
@@ -42,7 +42,7 @@ builds:
       - -s -w
 
 checksum:
-  name_template: "zbp_checksums.txt"
+  name_template: "rrp_checksums.txt"
 changelog:
   sort: asc
   filters:
@@ -60,15 +60,15 @@ archives:
     builds:
       - nowin
       - win
-    name_template: "zbp_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+    name_template: "rrp_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
     format_overrides:
       - goos: windows
         format: zip
 
 nfpms:
   - license: AGPL 3.0
-    homepage: https://github.com/NoahCodeGG/RelinkRobot
-    file_name_template: "zbp_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+    homepage: https://github.com/NoahCodeGG/RelinkRobot-Plugin
+    file_name_template: "rrp_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
     formats:
       - deb
       - rpm

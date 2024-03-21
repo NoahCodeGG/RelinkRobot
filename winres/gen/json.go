@@ -7,16 +7,13 @@ import (
 	"os/exec"
 	"strings"
 	"time"
-
-	"github.com/NoahCodeGG/RelinkRobot/kanban/banner"
 )
 
-const js = `{
+const JS = `{
   "RT_GROUP_ICON": {
     "APP": {
       "0000": [
-        "icon.png",
-        "icon16.png"
+        "icon.png"
       ]
     }
   },
@@ -24,7 +21,7 @@ const js = `{
     "#1": {
       "0409": {
         "identity": {
-          "name": "ZeroBot-Plugin",
+          "name": "RelinkRobot-Plugin",
           "version": "%s"
         },
         "description": "",
@@ -55,16 +52,16 @@ const js = `{
         },
         "info": {
           "0409": {
-            "Comments": "OneBot plugins based on ZeroBot",
-            "CompanyName": "FloatTech",
-            "FileDescription": "https://github.com/NoahCodeGG/RelinkRobot",
+            "Comments": "用于加/解密链接的 QQ 机器人插件",
+            "CompanyName": "NoahCode",
+            "FileDescription": "https://github.com/NoahCodeGG/RelinkRobot-Plugin",
             "FileVersion": "%s",
             "InternalName": "",
             "LegalCopyright": "%s",
             "LegalTrademarks": "",
-            "OriginalFilename": "ZBP.EXE",
+            "OriginalFilename": "RRP.EXE",
             "PrivateBuild": "",
-            "ProductName": "ZeroBot-Plugin",
+            "ProductName": "RelinkRobot-Plugin",
             "ProductVersion": "%s",
             "SpecialBuild": ""
           }
@@ -74,7 +71,9 @@ const js = `{
   }
 }`
 
-const timeformat = `2006-01-02T15:04:05+08:00`
+const TimeFormat = `2006-01-02T15:04:05+08:00`
+const Version = "v1.0.0"
+const Copyright = "NoahCode"
 
 func main() {
 	f, err := os.Create("winres.json")
@@ -82,12 +81,8 @@ func main() {
 		panic(err)
 	}
 	defer f.Close()
-	i := strings.LastIndex(banner.Version, "-")
-	if i <= 0 {
-		i = len(banner.Version)
-	}
 	commitcnt := strings.Builder{}
-	commitcnt.WriteString(banner.Version[1:i])
+	commitcnt.WriteString(Version[1:])
 	commitcnt.WriteByte('.')
 	commitcntcmd := exec.Command("git", "rev-list", "--count", "HEAD")
 	commitcntcmd.Stdout = &commitcnt
@@ -96,7 +91,7 @@ func main() {
 		panic(err)
 	}
 	fv := commitcnt.String()[:commitcnt.Len()-1]
-	_, err = fmt.Fprintf(f, js, fv, fv, banner.Version, time.Now().Format(timeformat), fv, banner.Copyright+". All Rights Reserved.", banner.Version)
+	_, err = fmt.Fprintf(f, JS, fv, fv, Version, time.Now().Format(TimeFormat), fv, Copyright+". All Rights Reserved.", Version)
 	if err != nil {
 		panic(err)
 	}
