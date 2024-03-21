@@ -4,7 +4,7 @@ linters-settings:
     ignoretests: true
 
   goimports:
-    local-prefixes: github.com/NoahCodeGG/RelinkRobot
+    local-prefixes: github.com/NoahCodeGG/RelinkRobot-Plugin
 
   forbidigo:
     # Forbid the following identifiers

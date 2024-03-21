@@ -1,4 +1,4 @@
-module github.com/NoahCodeGG/RelinkRobot
+module github.com/NoahCodeGG/RelinkRobot-Plugin
 
 go 1.20
 
@@ -8,7 +8,6 @@ require (
 	github.com/FloatTech/zbputils v1.7.1-0.20231107124514-083e678fbfe6
 	github.com/fumiama/go-registry v0.2.6
 	github.com/sirupsen/logrus v1.9.3
-	github.com/tidwall/gjson v1.17.1
 	github.com/wdvxdr1123/ZeroBot v1.7.5-0.20231009162356-57f71b9f5258
 	golang.org/x/sys v0.18.0
 )
@@ -33,6 +32,7 @@ require (
 	github.com/mattn/go-isatty v0.0.16 // indirect
 	github.com/pbnjay/memory v0.0.0-20210728143218-7b4eea64cf58 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20200410134404-eec4a21b6bb0 // indirect
+	github.com/tidwall/gjson v1.17.1 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
 	golang.org/x/image v0.3.0 // indirect

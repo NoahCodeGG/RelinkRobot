@@ -12,22 +12,13 @@ import (
 	"strings"
 	"time"
 
-	_ "github.com/NoahCodeGG/RelinkRobot/console" // 更改控制台属性
-
-	"github.com/NoahCodeGG/RelinkRobot/kanban" // 打印 banner
-
-	_ "github.com/NoahCodeGG/RelinkRobot/plugin/relink" // 加/解密、链接转换
+	_ "github.com/NoahCodeGG/RelinkRobot-Plugin/plugin/relink" // 加/解密、链接转换
 
 	// -----------------------以下为内置依赖，勿动------------------------ //
 	"github.com/FloatTech/floatbox/process"
 	"github.com/sirupsen/logrus"
 	zero "github.com/wdvxdr1123/ZeroBot"
 	"github.com/wdvxdr1123/ZeroBot/driver"
-	"github.com/wdvxdr1123/ZeroBot/message"
-
-	// webctrl "github.com/FloatTech/zbputils/control/web"
-
-	"github.com/NoahCodeGG/RelinkRobot/kanban/banner"
 	// -----------------------以上为内置依赖，勿动------------------------ //
 )
 
@@ -51,7 +42,7 @@ func init() {
 	// 直接写死 URL 时，请更改下面第二个参数
 	url := flag.String("u", "ws://127.0.0.1:6700", "Set Url of WSClient.")
 	// 默认昵称
-	adana := flag.String("n", "椛椛", "Set default nickname.")
+	adana := flag.String("n", "小咔", "Set default nickname.")
 	prefix := flag.String("p", "/", "Set command prefix.")
 	runcfg := flag.String("c", "", "Run from config file.")
 	save := flag.String("s", "", "Save default config to file and exit.")
@@ -112,7 +103,7 @@ func init() {
 	}
 	config.W = []*driver.WSClient{driver.NewWebSocketClient(*url, *token)}
 	config.Z = zero.Config{
-		NickName:       append([]string{*adana}, "ATRI", "atri", "亚托莉", "アトリ"),
+		NickName:       append([]string{*adana}),
 		CommandPrefix:  *prefix,
 		SuperUsers:     sus,
 		RingLen:        *rsz,
@@ -141,14 +132,6 @@ func main() {
 	if !strings.Contains(runtime.Version(), "go1.2") { // go1.20之前版本需要全局 seed，其他插件无需再 seed
 		rand.Seed(time.Now().UnixNano()) //nolint: staticcheck
 	}
-	// 帮助
-	zero.OnFullMatchGroup([]string{"help", "/help", ".help", "菜单"}, zero.OnlyToMe).SetBlock(true).
-		Handle(func(ctx *zero.Ctx) {
-			ctx.SendChain(message.Text(banner.Banner, "\n管理发送\"/服务列表\"查看 bot 功能\n发送\"/用法name\"查看功能用法"))
-		})
-	zero.OnFullMatch("查看zbp公告", zero.OnlyToMe, zero.AdminPermission).SetBlock(true).
-		Handle(func(ctx *zero.Ctx) {
-			ctx.SendChain(message.Text(strings.ReplaceAll(kanban.Kanban(), "\t", "")))
-		})
+
 	zero.RunAndBlock(&config.Z, process.GlobalInitMutex.Unlock)
 }
